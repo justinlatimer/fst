@@ -465,6 +465,13 @@ impl SetBuilder<Vec<u8>> {
     pub fn memory() -> Self {
         SetBuilder(raw::Builder::memory())
     }
+
+
+    /// Create a builder that builds a set in memory (specifying capacity).
+    #[inline]
+    pub fn memory_with_capacity(capacity: usize) -> Self {
+        SetBuilder(raw::Builder::memory_with_capacity(capacity))
+    }
 }
 
 impl<W: io::Write> SetBuilder<W> {

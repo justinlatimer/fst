@@ -103,6 +103,12 @@ impl Builder<Vec<u8>> {
     pub fn memory() -> Self {
         Builder::new(Vec::with_capacity(10 * (1 << 10))).unwrap()
     }
+
+    /// Create a builder that builds an fst in memory (specifying capacity).
+    #[inline]
+    pub fn memory_with_capacity(capacity: usize) -> Self {
+        Builder::new(Vec::with_capacity(capacity)).unwrap()
+    }
 }
 
 impl<W: io::Write> Builder<W> {

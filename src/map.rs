@@ -519,6 +519,12 @@ impl MapBuilder<Vec<u8>> {
     pub fn memory() -> Self {
         MapBuilder(raw::Builder::memory())
     }
+
+    /// Create a builder that builds a map in memory (specifying capacity).
+    #[inline]
+    pub fn memory_with_capacity(capacity: usize) -> Self {
+        MapBuilder(raw::Builder::memory_with_capacity(capacity))
+    }
 }
 
 impl<W: io::Write> MapBuilder<W> {
